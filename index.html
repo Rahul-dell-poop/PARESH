@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Gear — Pro Gaming Accessories Bundle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0D1117; --surface:#141B24; --surface-2:#1B2430;
+    --cyan:#3DDC97; --violet:#7C6CF6; --ink:#EDEFF3; --muted:#8C93A3; --line:#232C38; --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.55;}
+  h1,h2,h3{font-family:'Rajdhani',sans-serif;font-weight:700;}
+  a{color:inherit;} img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  .capbar{height:5px;background:repeating-linear-gradient(90deg,var(--cyan) 0 40px,transparent 40px 46px);opacity:0.55;}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(13,17,23,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1120px;margin:0 auto;}
+  .badge{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);}
+  .cta-small{background:var(--cyan);color:#0D1117;font-weight:700;font-size:13px;padding:10px 18px;border-radius:999px;text-decoration:none;}
+
+  .hero{padding:64px 24px 40px;}
+  .hero-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;}
+  .eyebrow{display:inline-flex;gap:8px;font-size:12px;font-weight:600;color:var(--cyan);background:rgba(61,220,151,0.08);border:1px solid rgba(61,220,151,0.25);padding:6px 14px;border-radius:999px;margin-bottom:20px;}
+  h1.headline{font-size:48px;line-height:1.08;}
+  h1.headline .accent{color:var(--cyan);} h1.headline .accent2{color:var(--violet);}
+  .sub{margin-top:20px;font-size:17px;color:var(--muted);max-width:460px;}
+  .hero-ctas{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+  .btn-primary{background:var(--cyan);color:#0D1117;font-weight:700;font-size:15px;padding:15px 26px;border-radius:10px;text-decoration:none;}
+  .btn-secondary{border:1px solid var(--line);color:var(--ink);font-weight:600;font-size:15px;padding:15px 26px;border-radius:10px;text-decoration:none;}
+  .microtrust{margin-top:16px;font-size:13px;color:var(--muted);}
+
+  .gallery-hero{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .gallery-hero .photo{border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1/1;}
+  .gallery-hero .photo img{width:100%;height:100%;object-fit:cover;}
+  .gallery-hero .big{grid-column:1/3;aspect-ratio:16/9;}
+
+  .hook{padding:56px 24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);}
+  .hook-inner{max-width:1120px;margin:0 auto;text-align:center;}
+  .hook h2{font-size:27px;max-width:740px;margin:0 auto 8px;}
+  .hook-bullets{margin-top:32px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .hook-bullet{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);padding:20px;text-align:left;font-size:14px;font-weight:500;}
+  .hook-bullet .ic{font-size:20px;margin-bottom:10px;display:block;}
+
+  .ba{padding:80px 24px;}
+  .ba-inner{max-width:1120px;margin:0 auto;}
+  .ba-title{text-align:center;font-size:32px;margin-bottom:44px;}
+  .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .ba-card{border-radius:18px;padding:30px;border:1px solid var(--line);}
+  .ba-card.before{background:linear-gradient(180deg,rgba(124,108,246,0.06),transparent);}
+  .ba-card.after{background:linear-gradient(180deg,rgba(61,220,151,0.07),transparent);}
+  .ba-card h3{font-size:18px;margin-bottom:20px;}
+  .ba-card ul{list-style:none;}
+  .ba-card li{display:flex;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:14px;}
+  .ba-card li:last-child{border-bottom:none;}
+  .ba-card.before li span{color:var(--violet);} .ba-card.after li span{color:var(--cyan);}
+
+  .features{padding:80px 24px;background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .features-inner{max-width:1120px;margin:0 auto;}
+  .features h2{text-align:center;font-size:32px;margin-bottom:12px;}
+  .features .sub-c{text-align:center;color:var(--muted);max-width:520px;margin:0 auto 46px;font-size:15px;}
+  .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .feature-card{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .feature-card .photo{aspect-ratio:4/3;overflow:hidden;}
+  .feature-card .photo img{width:100%;height:100%;object-fit:cover;}
+  .feature-card .body{padding:18px;}
+  .feature-card h4{font-size:16px;margin-bottom:6px;font-family:'Inter';font-weight:700;}
+  .feature-card p{font-size:13px;color:var(--muted);}
+
+  .gallery{padding:76px 24px;background:var(--bg);border-bottom:1px solid var(--line);}
+  .gallery-inner{max-width:1120px;margin:0 auto;text-align:center;}
+  .gallery h2{font-size:30px;margin-bottom:8px;}
+  .gallery .sub-c{color:var(--muted);margin-bottom:32px;font-size:15px;}
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .gallery-grid .gallery-thumb:nth-child(n+5){margin-top:0;}
+  .gallery-thumb{border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1/1;}
+  .gallery-thumb img{width:100%;height:100%;object-fit:cover;}
+
+  .who{padding:80px 24px;}
+  .who-inner{max-width:1120px;margin:0 auto;}
+  .who h2{text-align:center;font-size:32px;margin-bottom:44px;}
+  .who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .who-card{border:1px solid var(--line);border-radius:var(--radius);padding:24px 18px;background:var(--surface-2);}
+  .who-card .tag{display:inline-block;font-size:11px;font-weight:700;color:#0D1117;background:var(--cyan);padding:4px 10px;border-radius:999px;margin-bottom:12px;}
+  .who-card h4{font-size:15px;margin-bottom:8px;font-family:'Inter';font-weight:700;}
+  .who-card p{font-size:13px;color:var(--muted);}
+
+  .pricing-cta{padding:80px 24px;}
+  .pricing-cta-inner{max-width:900px;margin:0 auto;text-align:center;background:var(--surface-2);border:1px solid var(--line);border-radius:24px;padding:50px 36px;}
+  .pricing-cta h2{font-size:28px;margin-bottom:10px;}
+  .pricing-cta p{color:var(--muted);margin-bottom:26px;}
+
+  .support{padding:56px 24px;border-top:1px solid var(--line);}
+  .support-inner{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+  .support h3{font-size:17px;margin-bottom:6px;font-family:'Inter';font-weight:700;}
+  .support p{color:var(--muted);font-size:14px;}
+  .support-contacts{display:flex;gap:24px;font-size:14px;}
+  .support-contacts a{color:var(--cyan);text-decoration:none;font-weight:600;}
+
+  footer{padding:30px 24px;text-align:center;color:var(--muted);font-size:12px;border-top:1px solid var(--line);}
+
+  @media(max-width:860px){
+    .hero-inner{grid-template-columns:1fr;}
+    h1.headline{font-size:34px;}
+    .hook-bullets{grid-template-columns:repeat(2,1fr);}
+    .ba-grid{grid-template-columns:1fr;}
+    .feature-grid{grid-template-columns:1fr;}
+    .who-grid{grid-template-columns:1fr 1fr;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .support-inner{flex-direction:column;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="badge"><span class="dot"></span> <b>Apex Gear</b></div>
+    <a href="pricing.html" class="cta-small">Get The Bundle</a>
+  </div>
+</header>
+<div class="capbar"></div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">🎮 Built For Mobile Gamers</span>
+      <h1 class="headline">
+        The <span class="accent">Pro Gamer</span><br>
+        Combo <span class="accent2">Bundle</span>
+      </h1>
+      <p class="sub">Low-latency wireless earbuds, grip-boosting gaming powder, and pro finger sleeves — everything you need to play longer, react faster, and stay comfortable in every match.</p>
+      <div class="hero-ctas">
+        <a href="pricing.html" class="btn-primary">🚀 See Pricing</a>
+        <a href="#gallery" class="btn-secondary">👀 See What's Inside</a>
+      </div>
+      <p class="microtrust">✅ Genuine physical products &nbsp; ✅ Ships in 3-5 days &nbsp; ✅ Cash on delivery available</p>
+    </div>
+    <div class="gallery-hero">
+      <div class="photo big"><img src="IMAGES/Three_key_bundle_products_arranged_202607011510.jpeg" alt="Gaming accessories bundle"></div>
+      <div class="photo"><img src="IMAGES/Glowing_diamonds_framing_earbuds._2K_202607011502.jpeg" alt="Wireless earbuds"></div>
+      <div class="photo"><img src="IMAGES/Masked_character_presenting_gami._2K_202607011502.jpeg" alt="Gaming setup"></div>
+    </div>
+  </div>
+</section>
+
+<div class="capbar"></div>
+
+<section class="hook">
+  <div class="hook-inner">
+    <h2>Sweaty palms costing you clutches? Slippery grip breaking your aim?<br>Gear up like the top squads do.</h2>
+    <div class="hook-bullets">
+      <div class="hook-bullet"><span class="ic">🎧</span> Low-latency earbuds built for fast reactions</div>
+      <div class="hook-bullet"><span class="ic">🖐️</span> Sweat-proof gaming powder for a locked-in grip</div>
+      <div class="hook-bullet"><span class="ic">⚡</span> Smooth, precise finger movement — no drag, no lag</div>
+      <div class="hook-bullet"><span class="ic">📦</span> One bundle, delivered to your door</div>
+    </div>
+  </div>
+</section>
+
+<section class="ba">
+  <div class="ba-inner">
+    <h2 class="ba-title">Before This ❌ &nbsp;→&nbsp; After This ✅</h2>
+    <div class="ba-grid">
+      <div class="ba-card before">
+        <h3>❌ BEFORE THIS</h3>
+        <ul>
+          <li><span>✖</span> Sweaty fingers slipping off the screen mid-fight</li>
+          <li><span>✖</span> Cheap earbuds with audio delay giving away your position</li>
+          <li><span>✖</span> Hands cramping up during long ranked sessions</li>
+          <li><span>✖</span> Missing footsteps because of laggy Bluetooth audio</li>
+          <li><span>✖</span> Buying accessories one at a time, never as a proper kit</li>
+        </ul>
+      </div>
+      <div class="ba-card after">
+        <h3>✅ AFTER THIS</h3>
+        <ul>
+          <li><span>✔</span> Dry, confident grip through every match</li>
+          <li><span>✔</span> Crisp, low-latency audio so you hear enemies first</li>
+          <li><span>✔</span> Comfortable long sessions without hand fatigue</li>
+          <li><span>✔</span> A complete kit that arrives ready to use</li>
+          <li><span>✔</span> One simple order instead of five different purchases</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="features-inner">
+    <h2>What's In The Bundle</h2>
+    <p class="sub-c">Three products, picked to work together — not just thrown into a box.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="photo"><img src="IMAGES/Glowing_diamonds_framing_earbuds._2K_202607011502.jpeg" alt="Wireless gaming earbuds"></div>
+        <div class="body"><h4>Low-Latency Wireless Earbuds</h4><p>Crisp positional audio with a digital charging case display.</p></div>
+      </div>
+      <div class="feature-card">
+        <div class="photo"><img src="IMAGES/Futuristic_character_holding_pow._2K_202607011510.jpeg" alt="Gaming grip powder"></div>
+        <div class="body"><h4>Sweat-Proof Gaming Powder</h4><p>Keeps palms and fingers dry for a locked-in grip, match after match.</p></div>
+      </div>
+      <div class="feature-card">
+        <div class="photo"><img src="IMAGES/Futuristic_character_holding_glo._2K_202607011502.jpeg" alt="Gaming finger sleeves"></div>
+        <div class="body"><h4>Pro Finger Sleeves</h4><p>Smooth, frictionless swipes for faster, more precise movement.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="gallery-inner">
+    <h2>A Closer Look</h2>
+    <p class="sub-c">Real product shots of what ships in the box.</p>
+    <div class="gallery-grid">
+      <div class="gallery-thumb"><img src="IMAGES/Glowing_diamonds_framing_earbuds._2K_202607011502.jpeg" alt="Earbuds detail"></div>
+      <div class="gallery-thumb"><img src="IMAGES/Futuristic_character_holding_pow._2K_202607011510.jpeg" alt="Powder detail"></div>
+      <div class="gallery-thumb"><img src="IMAGES/Futuristic_character_holding_glo._2K_202607011502.jpeg" alt="Finger sleeves detail"></div>
+      <div class="gallery-thumb"><img src="IMAGES/Free_Fire_bundle_items_flat_202607011510.jpeg" alt="Full bundle laid out"></div>
+      <div class="gallery-thumb"><img src="IMAGES/WhatsApp Image 2026-07-01 at 2.44.14 PM (1).jpeg" alt="Earbuds case open"></div>
+      <div class="gallery-thumb"><img src="IMAGES/Masked_character_presenting_gami._2K_202607011502.jpeg" alt="Gaming setup with bundle"></div>
+      <div class="gallery-thumb"><img src="IMAGES/Free_Fire_bundle_sale_products_202607011504.jpeg" alt="Gaming powder tin open"></div>
+      <div class="gallery-thumb"><img src="IMAGES/Free_Fire_bundle_treasure_chest_202607011504.jpeg" alt="Bundle packaging"></div>
+    </div>
+  </div>
+</section>
+
+<section class="who">
+  <div class="who-inner">
+    <h2>Who Is This For?</h2>
+    <div class="who-grid">
+      <div class="who-card"><span class="tag">Ranked Grinders</span><h4>Play more, cramp less</h4><p>Stay comfortable through marathon ranked sessions.</p></div>
+      <div class="who-card"><span class="tag">Competitive Squads</span><h4>Hear enemies first</h4><p>Low-latency audio gives your team the reaction-time edge.</p></div>
+      <div class="who-card"><span class="tag">Streamers</span><h4>Look and play the part</h4><p>A clean, pro setup viewers notice on stream.</p></div>
+      <div class="who-card"><span class="tag">Gifting</span><h4>An easy gift for gamers</h4><p>One bundle covers audio, grip, and comfort in one order.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-cta">
+  <div class="pricing-cta-inner">
+    <span class="eyebrow">⏳ Launch Pricing</span>
+    <h2>Ready To See The Price?</h2>
+    <p>Full pricing, bundle details, and secure checkout are on the next page.</p>
+    <a href="pricing.html" class="btn-primary">🔓 View Pricing & Buy</a>
+  </div>
+</section>
+
+<section class="support">
+  <div class="support-inner">
+    <div><h3>Need help before you buy?</h3><p>Our team responds within 24 hours, every day.</p></div>
+    <div class="support-contacts">
+      <a href="mailto:support@apexgear.in">📧 support@apexgear.in</a>
+      <a href="tel:+910000000000">📞 +91 00000 00000</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Apex Gear. Physical gaming accessories bundle — not affiliated with any game publisher.</footer>
+
+</body>
+</html>

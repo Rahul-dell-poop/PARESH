@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Apex Gear Pro Gamer Bundle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0D1117; --surface:#141B24; --surface-2:#1B2430;
+    --cyan:#3DDC97; --violet:#7C6CF6; --ink:#EDEFF3; --muted:#8C93A3; --line:#232C38; --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.55;}
+  h1,h2,h3{font-family:'Rajdhani',sans-serif;font-weight:700;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;} img{max-width:100%;display:block;}
+
+  .page{max-width:480px;margin:0 auto;padding:0 20px 60px;}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(13,17,23,0.95);backdrop-filter:blur(8px);z-index:10;}
+  .back{font-size:14px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px;}
+  .badge{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);}
+  .capbar{height:5px;background:repeating-linear-gradient(90deg,var(--cyan) 0 30px,transparent 30px 35px);opacity:0.55;}
+
+  .hero{padding:28px 0 4px;text-align:center;}
+  .eyebrow{display:inline-flex;gap:6px;font-size:12px;font-weight:600;color:var(--cyan);background:rgba(61,220,151,0.08);border:1px solid rgba(61,220,151,0.25);padding:6px 12px;border-radius:999px;margin-bottom:14px;}
+  h1{font-size:24px;margin-bottom:8px;}
+  .hero p{color:var(--muted);font-size:14px;max-width:360px;margin:0 auto;}
+
+  .photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px;}
+  .photo-strip img:nth-child(n+4){margin-top:0;}
+  .photo-strip img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;border:1px solid var(--line);}
+
+  .plan{margin-top:26px;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;text-align:center;}
+  .plan .name{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.04em;}
+
+  .price-row{display:flex;align-items:baseline;justify-content:center;gap:10px;margin-bottom:4px;}
+  .price-old{font-size:16px;color:var(--muted);text-decoration:line-through;}
+  .price-new{font-size:40px;font-weight:700;color:var(--cyan);font-family:'Rajdhani';}
+  .price-note{font-size:12px;color:var(--muted);margin-bottom:20px;}
+  .savings-badge{
+    display:inline-block;background:rgba(61,220,151,0.12);border:1px solid rgba(61,220,151,0.35);
+    color:var(--cyan);font-size:12.5px;font-weight:700;padding:6px 14px;border-radius:999px;
+    margin-bottom:14px;
+  }
+
+  .coupon-box{display:flex;gap:8px;margin-bottom:20px;}
+  .coupon-box input{
+    flex:1;background:var(--surface);border:1px solid var(--line);color:var(--ink);
+    padding:13px 14px;border-radius:10px;font-size:14px;font-family:'JetBrains Mono';
+    text-transform:uppercase;
+  }
+  .coupon-box input::placeholder{color:var(--muted);text-transform:none;font-family:'Inter';}
+  .coupon-box button{
+    background:var(--surface);border:1px solid var(--line);color:var(--ink);
+    font-weight:700;font-size:13px;padding:0 18px;border-radius:10px;cursor:pointer;
+  }
+  .coupon-msg{font-size:12.5px;margin-bottom:18px;min-height:16px;}
+  .coupon-msg.success{color:var(--cyan);}
+  .coupon-msg.error{color:#E8637A;}
+
+  .plan ul{list-style:none;text-align:left;margin-bottom:22px;}
+  .plan li{display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px;}
+  .plan li:last-child{border-bottom:none;}
+  .plan li span{color:var(--cyan);}
+
+  .btn-primary{display:block;width:100%;text-align:center;background:var(--cyan);color:#0D1117;font-weight:700;font-size:16px;padding:16px;border-radius:12px;text-decoration:none;border:none;cursor:pointer;}
+  .secure-note{margin-top:16px;font-size:12.5px;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:6px;}
+  .badges-row{display:flex;justify-content:center;gap:8px;margin-top:16px;flex-wrap:wrap;}
+  .paybadge{font-size:11px;font-weight:700;color:var(--muted);border:1px solid var(--line);padding:7px 11px;border-radius:8px;background:var(--surface);}
+
+  .faq{margin-top:36px;}
+  .faq h3{font-size:16px;margin-bottom:14px;}
+  .faq-item{border-bottom:1px solid var(--line);padding:14px 0;}
+  .faq-item summary{cursor:pointer;font-size:14px;font-weight:600;list-style:none;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item p{margin-top:8px;font-size:13.5px;color:var(--muted);}
+
+  .support{margin-top:36px;text-align:center;font-size:13px;color:var(--muted);}
+  .support a{color:var(--cyan);text-decoration:none;font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:11px;margin-top:36px;}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="back">← Back</a>
+  <div class="badge"><span class="dot"></span> Apex Gear</div>
+</header>
+<div class="capbar"></div>
+
+<div class="page">
+
+  <div class="hero">
+    <span class="eyebrow">🎮 Pro Gamer Bundle</span>
+    <h1>Get The Full Kit</h1>
+  </div>
+
+  <div class="photo-strip">
+    <img src="IMAGES/Glowing_diamonds_framing_earbuds._2K_202607011502.jpeg" alt="Earbuds">
+    <img src="IMAGES/Futuristic_character_holding_pow._2K_202607011510.jpeg" alt="Gaming powder">
+    <img src="IMAGES/Futuristic_character_holding_glo._2K_202607011502.jpeg" alt="Finger sleeves">
+    <img src="IMAGES/Free_Fire_bundle_items_flat_202607011510.jpeg" alt="Bundle laid out">
+    <img src="IMAGES/WhatsApp Image 2026-07-01 at 2.44.14 PM (1).jpeg" alt="Earbuds case">
+    <img src="IMAGES/Masked_character_presenting_gami._2K_202607011502.jpeg" alt="Gaming setup">
+  </div>
+
+  <div class="plan">
+    <div class="name">Complete Bundle</div>
+    <div class="price-row">
+      <span class="price-old" id="priceOld">₹5,000</span>
+      <span class="price-new mono" id="priceDisplay">₹5,000</span>
+    </div>
+    <div class="savings-badge" id="savingsBadge" style="display:none;">🎉 You saved ₹4,500</div>
+    <div class="price-note" id="priceNote">Enter a coupon code below to unlock launch pricing</div>
+
+    <div class="coupon-box">
+      <input type="text" id="couponInput" placeholder="Enter coupon code" maxlength="20">
+      <button onclick="applyCoupon()">Apply</button>
+    </div>
+    <div class="coupon-msg" id="couponMsg"></div>
+
+    <ul>
+      <li><span>✔</span> Low-latency wireless earbuds</li>
+      <li><span>✔</span> Sweat-proof gaming powder</li>
+      <li><span>✔</span> Pro finger sleeves</li>
+      <li><span>✔</span> Free shipping across India</li>
+      <li><span>✔</span> Cash on delivery available</li>
+    </ul>
+
+    <button class="btn-primary" onclick="checkout()">🔓 Buy Now</button>
+    <div class="secure-note">🔒 Guaranteed Safe &amp; Secure Checkout</div>
+    <div class="badges-row">
+      <span class="paybadge mono">UPI</span>
+      <span class="paybadge mono">GPay</span>
+      <span class="paybadge mono">PhonePe</span>
+      <span class="paybadge mono">Visa</span>
+      <span class="paybadge mono">Mastercard</span>
+      <span class="paybadge mono">COD</span>
+    </div>
+  </div>
+
+  <div class="faq">
+    <h3>Quick questions</h3>
+    <details class="faq-item">
+      <summary>What exactly ships in the box?</summary>
+      <p>One pair of wireless earbuds, one tin of gaming grip powder, and one pair of finger sleeves — the three items shown above.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How long does delivery take?</summary>
+      <p>Orders ship within 3-5 business days across India, with tracking sent to your email.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is cash on delivery available?</summary>
+      <p>Yes — COD is available at checkout alongside UPI and card payments.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What if something arrives damaged?</summary>
+      <p>Email us with a photo within 48 hours of delivery and we'll replace it, no questions asked.</p>
+    </details>
+  </div>
+
+  <div class="support">Still have questions? <a href="mailto:support@apexgear.in">Email support</a></div>
+  <footer>© 2026 Apex Gear. Physical gaming accessories bundle — not affiliated with any game publisher. All prices in INR.</footer>
+
+</div>
+
+<script>
+  // Real coupon mechanic — no fake "redeem for in-game currency" claims.
+  // Replace this map with your actual live codes when ready.
+  const VALID_COUPONS = { "PARESH": 500 };
+  const BASE_PRICE = 5000;
+
+  function formatINR(n){ return '₹' + n.toLocaleString('en-IN'); }
+
+  function applyCoupon(){
+    const input = document.getElementById('couponInput');
+    const code = input.value.trim().toUpperCase();
+    const msg = document.getElementById('couponMsg');
+    const priceDisplay = document.getElementById('priceDisplay');
+    const priceNote = document.getElementById('priceNote');
+
+    const badge = document.getElementById('savingsBadge');
+
+    if(VALID_COUPONS.hasOwnProperty(code)){
+      const finalPrice = VALID_COUPONS[code];
+      const saved = BASE_PRICE - finalPrice;
+      priceDisplay.textContent = formatINR(finalPrice);
+      priceNote.textContent = 'Coupon "' + code + '" applied — final price';
+      msg.textContent = '✔ Coupon applied successfully';
+      msg.className = 'coupon-msg success';
+      badge.textContent = '🎉 You saved ' + formatINR(saved);
+      badge.style.display = 'inline-block';
+    } else {
+      priceDisplay.textContent = formatINR(BASE_PRICE);
+      priceNote.textContent = 'Enter a coupon code below to unlock launch pricing';
+      msg.textContent = code ? '✖ Invalid or expired coupon code' : '';
+      msg.className = 'coupon-msg error';
+      badge.style.display = 'none';
+    }
+  }
+
+  function checkout(){
+    alert('Connect this button to your real payment gateway (Razorpay/Stripe/etc.) to go live.');
+  }
+</script>
+
+</body>
+</html>

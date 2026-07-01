@@ -105,12 +105,18 @@
     <img src="IMAGES/Free_Fire_bundle_items_flat_202607011510.jpeg" alt="Bundle laid out">
     <img src="IMAGES/WhatsApp Image 2026-07-01 at 2.44.14 PM (1).jpeg" alt="Earbuds case">
     <img src="IMAGES/Masked_character_presenting_gami._2K_202607011502.jpeg" alt="Gaming setup">
+    <img src="IMAGES/Chest_overflowing_with_diamonds_2K_202607011510.jpeg" alt="Diamonds chest">
+    <img src="IMAGES/Futuristic_crate_opening_scene_2K_202607011502.jpeg" alt="Futuristic crate">
+    <img src="IMAGES/Heroic_product_showcase_of_the_202607011504.jpeg" alt="Heroic product showcase">
+    <img src="IMAGES/Three_key_bundle_products_arranged_202607011510.jpeg" alt="Bundle items key arrangement">
+    <img src="IMAGES/Free_Fire_bundle_sale_products_202607011504.jpeg" alt="Gaming powder tin open">
+    <img src="IMAGES/Free_Fire_bundle_treasure_chest_202607011504.jpeg" alt="Bundle packaging">
   </div>
 
   <div class="plan">
     <div class="name">Complete Bundle</div>
     <div class="price-row">
-      <span class="price-old" id="priceOld">₹5,000</span>
+      <span class="price-old" id="priceOld" style="display:none;">₹5,000</span>
       <span class="price-new mono" id="priceDisplay">₹5,000</span>
     </div>
     <div class="savings-badge" id="savingsBadge" style="display:none;">🎉 You saved ₹4,500</div>
@@ -181,6 +187,7 @@
     const msg = document.getElementById('couponMsg');
     const priceDisplay = document.getElementById('priceDisplay');
     const priceNote = document.getElementById('priceNote');
+    const priceOld = document.getElementById('priceOld');
 
     const badge = document.getElementById('savingsBadge');
 
@@ -193,12 +200,14 @@
       msg.className = 'coupon-msg success';
       badge.textContent = '🎉 You saved ' + formatINR(saved);
       badge.style.display = 'inline-block';
+      priceOld.style.display = 'inline';
     } else {
       priceDisplay.textContent = formatINR(BASE_PRICE);
       priceNote.textContent = 'Enter a coupon code below to unlock launch pricing';
       msg.textContent = code ? '✖ Invalid or expired coupon code' : '';
       msg.className = 'coupon-msg error';
       badge.style.display = 'none';
+      priceOld.style.display = 'none';
     }
   }
 
